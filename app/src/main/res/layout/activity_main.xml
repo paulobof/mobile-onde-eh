@@ -1,18 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
+    android:padding="16dp"
+    android:orientation="vertical">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="Informe o CEP" />
+    <EditText
+        android:id="@+id/etCep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btPesquisar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pesquisar" />
+    <TextView
+        android:id="@+id/tvLogradouro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Logradouro" />
+    <TextView
+        android:id="@+id/tvBairro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Bairro" />
+    <TextView
+        android:id="@+id/tvLocalidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Localidade" />
+    <TextView
+        android:id="@+id/tvUF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="UF" />
+</LinearLayout>
