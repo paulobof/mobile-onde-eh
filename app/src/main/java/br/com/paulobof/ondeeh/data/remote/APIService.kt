@@ -1,6 +1,5 @@
 package br.com.paulobof.ondeeh.data.remote
 
-import br.com.paulobof.ondeeh.model.EnderecoService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
