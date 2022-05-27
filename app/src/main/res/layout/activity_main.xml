@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="mainViewModel"
+            type="br.com.paulobof.ondeeh.presentation.main.MainViewModel" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +23,7 @@
             android:text="Informe o CEP" />
 
         <EditText
-            android:id="@+id/etCep"
+            android:id="@+id/etCEP"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -28,43 +31,31 @@
             android:id="@+id/btPesquisar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> mainViewModel.pesquisar(etCEP.getText().toString())}"
             android:text="Pesquisar" />
 
         <TextView
             android:id="@+id/tvLogradouro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Logradouro" />
+            android:text="@{mainViewModel.enderecoResponse.logradouro}" />
 
         <TextView
             android:id="@+id/tvBairro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Bairro" />
+            android:text='@{mainViewModel.enderecoResponse.bairro}' />
 
         <TextView
             android:id="@+id/tvLocalidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Localidade" />
+            android:text='@{mainViewModel.enderecoResponse.localidade}' />
 
         <TextView
             android:id="@+id/tvUF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="UF" />
+            android:text='@{mainViewModel.enderecoResponse.uf}' />
     </LinearLayout>
-
-    <LinearLayout
-        android:visibility="gone"
-        android:id="@+id/ContainerLoading"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#EEE"
-        android:gravity="center">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Carregando os dados" />
-    </LinearLayout>
-</FrameLayout>
+</layout>
