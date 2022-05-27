@@ -8,6 +8,9 @@ import retrofit2.Response
 
 class MainPresenter (var view: MainContract.MainView) : MainContract.MainPresenter {
     override fun pesquisar(cep: String) {
+
+        view.mostrarCarregando()
+
         if(cep.isEmpty()) {
             view.mostrarErro("Informe o CEP")
         } else {
@@ -28,5 +31,6 @@ class MainPresenter (var view: MainContract.MainView) : MainContract.MainPresent
                     }
                 })
         }
+        view.esconderCarregando()
     }
 }

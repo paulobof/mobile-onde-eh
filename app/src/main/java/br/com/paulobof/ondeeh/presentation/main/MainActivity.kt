@@ -2,6 +2,7 @@ package br.com.paulobof.ondeeh.presentation.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import br.com.paulobof.ondeeh.R
 import br.com.paulobof.ondeeh.databinding.ActivityMainBinding
@@ -13,6 +14,7 @@ class MainActivity : AppCompatActivity(), MainContract.MainView
     private lateinit var mainPresenter: MainContract.MainPresenter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         val view = binding.root
@@ -35,5 +37,11 @@ class MainActivity : AppCompatActivity(), MainContract.MainView
     }
     override fun mostrarErro(mensagem: String) {
         Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show()
+    }
+    override fun mostrarCarregando (){
+        binding.ContainerLoading.visibility = View.VISIBLE
+    }
+    override fun esconderCarregando (){
+        binding.ContainerLoading.visibility = View.GONE
     }
 }
